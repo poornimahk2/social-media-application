@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block start %}
+
+
+<section>
+    <div class="container">
+       
+        <div class="row text-center">
+            <div class="col-xl-10 mx-auto"><img class="img-fluid mb-5"
+                    src="/media/{{blog_obj.image}}"
+                    alt=""></div>
+        </div>
+        <div class="row">
+            <div class="col-xl-8 col-lg-10 mx-auto">
+                <div class="text-content">
+                    {{blog_obj.content|safe}}
+                </div>
+            </div>
+        </div>
+
+        <!-- comment -->
+        <div class="card my-4">
+            <h5 class="card-header">Leave a comment</h5>
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <textarea class="form-control"  placeholder="Comment here" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+
+        </div>
+
+        <!-- single comment -->
+        {% for comment in comments %}
+        <div class="media mb-4">
+            <img alt="img" class="d-flex mr-3 rounded-circle" src=""/>
+            <div class="mt-0">
+                <h5>
+                    Comment here
+                </h5>
+               {{ comment.message }}
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+
+
+{% endblock %}
